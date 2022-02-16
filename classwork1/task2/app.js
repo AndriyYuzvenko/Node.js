@@ -18,8 +18,8 @@ fs.readFile(path.join(__dirname, 'task.txt'), (err, data) => {
         (err) => {
             if (err) console.log(err);
         })
+    fs.unlink("task.txt", (err) => {
+        if (err) console.log(err)
+    });
 })
 
-fs.unlink("task.txt", (err) => {
-    if (err) console.log(err)
-});
