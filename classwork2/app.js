@@ -11,7 +11,7 @@ app.set('view engine', '.hbs');
 app.engine('.hbs', engine({defaultLayout: false}));
 app.set('views', path.join(__dirname, 'static'));
 
-const users = []
+let users = []
 
 app.get('/login', (req, res) => {
     res.render('login')
@@ -54,6 +54,15 @@ app.post('/login', ({body}, res) => {
         res.redirect('/signIn')
     }
 })
+
+app.post('/users/:id', (req, res) => {
+    const {id} = req.params;
+    const index = users.findIndex(n => n.id === id);
+    if (index === -1) {
+        users.splice(index - 1, 1);
+    }
+    res.redirect('/users');
+});
 
 app.get('/users/:id', ({params}, res) => {
     const userId = users.find(item => item.id === +params.id)

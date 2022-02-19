@@ -17,8 +17,8 @@
     <p>Password:{{userId.password}}</p>
     <p>City:{{userId.city}}</p>
     <p>{{deleteUsers}}</p>
-    <form class="form" action="/users/{{userId.id}}">
-        <button onclick={{a}}>delete</button>
+    <form class="form" action="/users/{{userId.id}}" method="post">
+        <button>delete</button>
     </form>
 
 </div>
