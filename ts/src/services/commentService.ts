@@ -2,14 +2,12 @@ import { IComments } from '../entity/comment';
 import { commentRepository } from '../repositories/comments/commentRepository';
 
 class CommentService {
-    public async postComments(comment:IComments):Promise<IComments> {
-        const postComments = await commentRepository.postComment(comment);
-        return postComments;
+    public postComments(comment:IComments):Promise<IComments> {
+        return commentRepository.postComment(comment);
     }
 
-    public async getComments(userId:string):Promise<string | {}> {
-        const getComments = await commentRepository.getComments(userId);
-        return getComments;
+    public getComments(userId:string):Promise<string | {}> {
+        return commentRepository.getComments(userId);
     }
 }
 

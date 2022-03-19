@@ -9,7 +9,7 @@ class PostRepository extends Repository<Post> implements IPostRepository {
         return getManager().getRepository(Post).save(post);
     }
 
-    public async getPosts(userId:string):Promise<IPost | {}> {
+    public async getPosts(userId:string):Promise<IPost[]> {
         return getManager().getRepository(Post)
             .createQueryBuilder('post')
             .where('post.userId = :id', { id: +userId })

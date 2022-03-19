@@ -8,31 +8,26 @@ class UserService {
 
         const hashedPassword = await this._hashPassword(password);
         const dataSave = { ...user, password: hashedPassword };
-        const createdUser = await userRepository.createUser(dataSave);
-        return createdUser;
+        return userRepository.createUser(dataSave);
     }
 
     public async getUserByEmail(email: string):Promise<IUser | undefined> {
-        const getByIdUser = await userRepository.getUserByEmail(email);
-        return getByIdUser;
+        return userRepository.getUserByEmail(email);
     }
 
-    public async getUser(user:IUser):Promise<IUser[]> {
-        const getUser = await userRepository.getUser(user);
-        return getUser;
+    public getUser(user:IUser):Promise<IUser[]> {
+        return userRepository.getUser(user);
     }
 
-    public async deleteUser(id:string):Promise<string | {}> {
-        const deleteUser = await userRepository.deleteUser(id);
-        return deleteUser;
+    public deleteUser(id:string):Promise<string | {}> {
+        return userRepository.deleteUser(id);
     }
 
-    public async patchUser(id:string, user:IUser):Promise<string | {}> {
-        const patchUser = await userRepository.patchUser(id, user);
-        return patchUser;
+    public patchUser(id:string, user:IUser):Promise<string | {}> {
+        return userRepository.patchUser(id, user);
     }
 
-    private async _hashPassword(password:string):Promise<string> {
+    private _hashPassword(password:string):Promise<string> {
         return bcrypt.hash(password, 10);
     }
 }

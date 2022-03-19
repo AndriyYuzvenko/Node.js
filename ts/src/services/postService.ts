@@ -2,19 +2,16 @@ import { IPost } from '../entity/post';
 import { postRepository } from '../repositories/posts/postRepository';
 
 class PostService {
-    public async postPosts(post:IPost):Promise<IPost> {
-        const postPosts = await postRepository.postPosts(post);
-        return postPosts;
+    public postPosts(post:IPost):Promise<IPost> {
+        return postRepository.postPosts(post);
     }
 
-    public async getPost(userId:string):Promise<IPost | {}> {
-        const getPost = await postRepository.getPosts(userId);
-        return getPost;
+    public getPost(userId:string):Promise<IPost[]> {
+        return postRepository.getPosts(userId);
     }
 
-    public async patchPosts(postId:string, post:IPost):Promise<IPost> {
-        const patchPosts = await postRepository.patchPost(postId, post);
-        return patchPosts;
+    public patchPosts(postId:string, post:IPost):Promise<IPost> {
+        return postRepository.patchPost(postId, post);
     }
 }
 
