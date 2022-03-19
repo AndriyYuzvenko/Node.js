@@ -12,7 +12,7 @@ class PostService {
         return getPost;
     }
 
-    public async patchPosts(postId:string, post:IPost):Promise<string | {}> {
+    public async patchPosts(postId:string, post:IPost):Promise<IPost> {
         const patchPosts = await postRepository.patchPost(postId, post);
         return patchPosts;
     }

@@ -17,7 +17,7 @@ class PostRepository extends Repository<Post> implements IPostRepository {
             .getMany();
     }
 
-    public async patchPost(postId:string, post:IPost):Promise<string | {}> {
+    public async patchPost(postId:string, post:IPost):Promise<any> {
         const { text } = post;
         return getManager()
             .getRepository(Post)
